@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1">
+	   <center>
+      <AnchorPane prefHeight="674.0" prefWidth="912.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="690.0" prefWidth="131.0" style="-fx-background-color: #263F73;">
+               <children>
+                  <Pane prefHeight="114.0" prefWidth="200.0" stylesheets="@application.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="25.0" prefHeight="65.0" prefWidth="144.0" text="BodyOn" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="btnLogin" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="182.0" text="Login" />
+                  <Button fx:id="btnClient" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Clientes" />
+                  <Button fx:id="btnLotacao" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Lotação" />
+                  <Button fx:id="btnExercicios" mnemonicParsing="false" prefHeight="30.0" prefWidth="178.0" text="Exercícios" />
+                  <Button fx:id="btnPendencias" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="179.0" text="Pendencias" />
+                  <Button fx:id="btnFuncionarios" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="179.0" text="Funcionarios" />
+               </children>
+            </VBox>
+            <VBox layoutX="132.0" layoutY="199.0" prefHeight="459.0" prefWidth="806.0">
+               <children>
+                  <GridPane prefHeight="345.0" prefWidth="598.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="166.60001220703126" minHeight="10.0" prefHeight="63.400000000000006" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="279.4" minHeight="10.0" prefHeight="279.4" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TableView prefHeight="280.0" prefWidth="842.0" GridPane.rowIndex="1">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Nome" />
+                            <TableColumn prefWidth="75.0" text="Endereço" />
+                              <TableColumn prefWidth="75.0" text="Telefone" />
+                              <TableColumn prefWidth="75.0" text="Email" />
+                              <TableColumn prefWidth="75.0" text="Plano" />
+                              <TableColumn prefWidth="75.0" text="CPF" />
+                              <TableColumn prefWidth="75.0" text="Peso" />
+                              <TableColumn prefWidth="75.0" text="Altura" />
+                              <TableColumn prefWidth="75.0" text="Horario" />
+                              <TableColumn prefWidth="75.0" text="Data pagamento" />
+                              <TableColumn prefWidth="75.0" text="IMC" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <HBox layoutX="132.0" layoutY="172.0" prefHeight="46.0" prefWidth="805.0" style="-fx-background-color: #263F73;">
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="312.0" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" text="Pesquisar" />
+                  <Button mnemonicParsing="false" text="Adicionar" />
+                  <Button mnemonicParsing="false" text="Remover" />
+                  <Button mnemonicParsing="false" text="Atualizar" />
+               </children>
+            </HBox>
+            <Text fill="#263f73" layoutX="185.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes" wrappingWidth="139.8645782470703">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
+
