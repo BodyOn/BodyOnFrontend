@@ -3,12 +3,11 @@ package com.example.bodyonfront;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class LoginController {
     @FXML
-    private Label welcomeText;
+//    private Label welcomeText;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onLoginButtonClick() {
+        System.out.println("tentou logar");
     }
 }
