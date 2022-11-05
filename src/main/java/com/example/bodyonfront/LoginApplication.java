@@ -13,7 +13,6 @@ public class LoginApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 520, 400);
-//        stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("BodyOn");
         stage.setResizable(false);
         stage.setScene(scene);
