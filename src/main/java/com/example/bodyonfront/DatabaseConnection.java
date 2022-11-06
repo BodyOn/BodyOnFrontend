@@ -8,9 +8,11 @@ public class DatabaseConnection {
     public String url;
     public String senha;
     public String usuario;
+    public String database;
 
-     DatabaseConnection() {
+    public Connection getConnection() {
          usuario = "postgres";
+         database = "clientes";
          senha = "1234";
          url = "jdbc:postgresql://localhost:5432/BodyOndb";
 
@@ -24,5 +26,6 @@ public class DatabaseConnection {
                 exception.printStackTrace();
             }
         }
+        return databaseLink;
     }
 }
