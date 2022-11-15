@@ -6,6 +6,8 @@ public class Plano {
     private String descricao;
     private float valor;
 
+    public Plano(){}
+
     public Plano(
             int id,
             String nome,

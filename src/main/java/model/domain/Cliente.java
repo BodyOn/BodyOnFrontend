@@ -16,6 +16,8 @@ public class Cliente implements Serializable {
     private int idPlano;
     private String dataPagamento;
     private boolean pendente;
+
+    public Cliente(){}
     
     public Cliente(
             int id,

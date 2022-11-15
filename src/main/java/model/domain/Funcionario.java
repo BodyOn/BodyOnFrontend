@@ -13,6 +13,8 @@ public class Funcionario implements Serializable {
     private String cargo;
     private String horarioTrabalho;
 
+    public Funcionario(){}
+
     public Funcionario(
             int id,
             String nome,

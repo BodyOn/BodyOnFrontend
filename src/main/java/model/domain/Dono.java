@@ -11,6 +11,8 @@ public class Dono {
     private String horarioTrabalho;
     private String senha;
 
+    public Dono(){}
+
     public Dono(
             int id,
             String nome,

@@ -7,6 +7,8 @@ public class Exercicio {
     private int qtdRepeticoes;
     private String idCliente;
 
+    public Exercicio(){}
+
     public Exercicio(
             int id,
             String nome,
