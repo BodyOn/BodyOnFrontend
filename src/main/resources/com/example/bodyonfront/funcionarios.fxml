@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <right>
       <AnchorPane prefHeight="608.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,22 +24,18 @@
             </Pane>
             <TableView layoutX="8.0" layoutY="251.0" prefHeight="347.0" prefWidth="900.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Nome" />
-                  <TableColumn prefWidth="75.0" text="Endereco" />
-                  <TableColumn prefWidth="75.0" text="Telefone" />
-                  <TableColumn prefWidth="75.0" text="Email" />
+                <TableColumn prefWidth="75.0" text="id" />
+                  <TableColumn prefWidth="75.0" text="Nome" />
                   <TableColumn prefWidth="75.0" text="CPF" />
+                  <TableColumn prefWidth="75.0" text="Email" />
+                  <TableColumn prefWidth="75.0" text="Telefone" />
+                  <TableColumn prefWidth="75.0" text="Endereco" />
+                  <TableColumn prefWidth="75.0" text="Cargo" />
                   <TableColumn prefWidth="75.0" text="Horario" />
-                  <TableColumn prefWidth="75.0" text="id plano" />
-                  <TableColumn prefWidth="75.0" text="Data pagemento" />
-                  <TableColumn prefWidth="75.0" text="Pendente" />
-                  <TableColumn prefWidth="75.0" text="Horario" />
-                  <TableColumn prefWidth="75.0" text="Peso" />
-                  <TableColumn prefWidth="75.0" text="Altura" />
               </columns>
             </TableView>
             <Button layoutX="23.0" layoutY="207.0" mnemonicParsing="false" text="Home" />
-            <Button layoutX="787.0" layoutY="207.0" mnemonicParsing="false" text="Adicionar Cliente" />
+            <Button layoutX="773.0" layoutY="207.0" mnemonicParsing="false" text="Adicionar Funcionario" />
          </children>
       </AnchorPane>
    </right>
