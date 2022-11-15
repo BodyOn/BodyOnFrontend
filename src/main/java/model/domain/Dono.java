@@ -1,0 +1,75 @@
+package model.domain;
+
+public class Dono {
+    private int id;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private String endereco;
+    private String cargo;
+    private String horarioTrabalho;
+    private String senha;
+
+    public Dono(
+            int id,
+            String nome,
+            String cpf,
+            String email,
+            String telefone,
+            String endereco,
+            String cargo,
+            String horarioTrabalho,
+            String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.cargo = cargo;
+        this.horarioTrabalho = horarioTrabalho;
+        this.senha = senha;
+    }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
+    public String getNome() { return nome; }
+
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getCpf() { return cpf; }
+
+    public void setCpf(String cpf) { this.cpf = cpf; }
+
+    public String getEmail() {return email; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public String getTelefone() { return telefone; }
+
+    public void setTelefone(String telefone) { this.telefone = telefone; }
+
+    public String getEndereco() { return endereco; }
+
+    public void setEndereco(String endereco) { this.endereco = endereco; }
+
+    public String getCargo() { return cargo; }
+
+    public void setCargo(String cargo) { this.cargo = cargo; }
+
+    public String getHorarioTrabalho() { return horarioTrabalho; }
+
+    public void setHorarioTrabalho(String horarioTrabalho) { this.horarioTrabalho = horarioTrabalho; }
+
+    public String getSenha() { return senha; }
+
+    public void setSenha(String senha) { this.senha = senha; }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+}
