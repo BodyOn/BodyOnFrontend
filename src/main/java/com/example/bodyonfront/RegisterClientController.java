@@ -3,10 +3,7 @@ package com.example.bodyonfront;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +20,9 @@ public class RegisterClientController implements Initializable {
     public TextField clientHeight;
     public DatePicker clientPayday;
     public RadioButton clientPendency;
+    public Button mainOperationButton;
+    public Button cancelButton;
+    public Button deleteClient;
 
     String[] Schedule = new String[]{"7:00 - 9:00", "9:00 - 11:00", "11:00 - 13:00", "13:00 - 15:00",
             "15:00 - 17:00", "17:00 - 19:00", "19:00 - 21:00"};
@@ -30,20 +30,36 @@ public class RegisterClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         clientSchedule.getItems().addAll(Schedule);
+        deleteClient.setOnAction(event -> deleteClient());
+
+        // chooseOperation(-1);
+    }
+
+    public void chooseOperation(int idClient) {
+        if (idClient == -1) {
+            mainOperationButton.setOnAction(event -> registerClient());
+            deleteClient.setVisible(false);
+        }else{
+            mainOperationButton.setOnAction(event -> editClient());
+            deleteClient.setVisible(false);
+
+            // pega cliente no bd
+             clientName.setText("quando pegar do bd so mudar os campos");
+        }
     }
 
     @FXML
-    protected void registerClientButton(ActionEvent actionEvent) {
-        System.out.println();
-        System.out.println("clientName: " + clientName.getText());
-        System.out.println("clientAddress:" + clientAddress.getText());
-        System.out.println("clientEmail: " + clientEmail.getText());
-        System.out.println("clientCpf: " + clientCpf.getText());
-        System.out.println("clientFone: " + clientFone.getText());
-        System.out.println("clientSchedule: " + clientSchedule.getValue());
-        System.out.println("clientWeight: " + clientWeight.getText());
-        System.out.println("clientHeight: " + clientHeight.getText());
-        System.out.println("clientPayday: " + clientPayday.getValue().toString());
-        System.out.println("clientPendency: " + clientPendency.isSelected());
+    protected void registerClient() {
+        System.out.println("registrou");
+    }
+
+    public void editClient() {
+        // TODO
+        System.out.println("editou");
+    }
+
+    public void deleteClient() {
+        // TODO
+        System.out.println("deletou");
     }
 }

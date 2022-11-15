@@ -24,7 +24,7 @@
                </font>
             </Text>
             <Label layoutX="16.0" layoutY="74.0" text="Nome" />
-            <Button fx:id="registerClientButton" layoutX="434.0" layoutY="360.0" mnemonicParsing="false" onAction="#registerClientButton" text="Salvar" />
+            <Button fx:id="mainOperationButton" layoutX="434.0" layoutY="360.0" mnemonicParsing="false" text="Salvar" />
             <Button fx:id="cancelButton" layoutX="13.0" layoutY="360.0" mnemonicParsing="false" text="Cancelar" />
             <TextField fx:id="clientName" layoutX="16.0" layoutY="92.0" prefHeight="26.0" prefWidth="230.0" />
             <TextField fx:id="clientAddress" layoutX="255.0" layoutY="92.0" prefHeight="26.0" prefWidth="230.0" />
@@ -44,6 +44,7 @@
             <ComboBox fx:id="clientSchedule" layoutX="15.0" layoutY="213.0" prefHeight="26.0" prefWidth="230.0" />
             <DatePicker fx:id="clientPayday" layoutX="15.0" layoutY="277.0" prefHeight="26.0" prefWidth="230.0" />
             <RadioButton fx:id="clientPendency" layoutX="257.0" layoutY="281.0" mnemonicParsing="false" text="Pendente" />
+            <Button fx:id="deleteClient" layoutX="372.0" layoutY="360.0" mnemonicParsing="false" text="Excluir" />
          </children>
       </AnchorPane>
    </center>
