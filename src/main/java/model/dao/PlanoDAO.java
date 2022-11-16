@@ -28,7 +28,7 @@ public class PlanoDAO {
             stmt.setInt(1, plano.getId());
             stmt.setString(2, plano.getNome());
             stmt.setString(3, plano.getDescricao());
-            stmt.setFloat(4, plano.getValor());
+            stmt.setDouble(4, plano.getValor());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -45,7 +45,7 @@ public class PlanoDAO {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, plano.getNome());
             stmt.setString(2, plano.getDescricao());
-            stmt.setFloat(3, plano.getValor());
+            stmt.setDouble(3, plano.getValor());
             stmt.setInt(4, plano.getId());
             stmt.execute();
             return true;
@@ -84,7 +84,7 @@ public class PlanoDAO {
                 plano.setId(resultado.getInt("id_plano"));
                 plano.setNome(resultado.getString("nome"));
                 plano.setDescricao(resultado.getString("descricao"));
-                plano.setValor(resultado.getFloat("valor"));
+                plano.setValor(resultado.getDouble("valor"));
 
                 retorno.add(plano);
             }
@@ -108,7 +108,7 @@ public class PlanoDAO {
 
                 plano.setNome(resultado.getString("nome"));
                 plano.setDescricao(resultado.getString("descricao"));
-                plano.setValor(resultado.getFloat("valor"));
+                plano.setValor(resultado.getDouble("valor"));
 
                 retorno = plano;
             }

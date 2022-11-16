@@ -1,8 +1,20 @@
 package test.model.dao; 
 
-import org.junit.Test; 
+import model.dao.FuncionarioDAO;
+import model.dao.PlanoDAO;
+import model.database.Database;
+import model.database.DatabaseFactory;
+import model.domain.Funcionario;
+import model.domain.Plano;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+
+import java.sql.Connection;
+import java.util.List;
+
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 
 /** 
 * PlanoDAO Tester. 
@@ -27,8 +39,14 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testGetConnection() throws Exception { 
-//TODO: Test goes here... 
+public void testGetConnection() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    Connection newConn = plano.getConnection();
+    assertEquals(conn, newConn);
 } 
 
 /** 
@@ -37,8 +55,14 @@ public void testGetConnection() throws Exception {
 * 
 */ 
 @Test
-public void testSetConnection() throws Exception { 
-//TODO: Test goes here... 
+public void testSetConnection() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    Connection newConn = plano.getConnection();
+    assertEquals(conn, newConn);
 } 
 
 /** 
@@ -47,8 +71,16 @@ public void testSetConnection() throws Exception {
 * 
 */ 
 @Test
-public void testInsert() throws Exception { 
-//TODO: Test goes here... 
+public void testInsert() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    Plano planoTeste = new Plano(133, "Nome Teste", "Descricao Teste", 23.5);
+    boolean resposta = plano.insert(planoTeste);
+
+    assertEquals(true, resposta);
 } 
 
 /** 
@@ -57,8 +89,16 @@ public void testInsert() throws Exception {
 * 
 */ 
 @Test
-public void testUpdate() throws Exception { 
-//TODO: Test goes here... 
+public void testUpdate() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    Plano planoTeste = new Plano(133, "Nome Teste Teste", "Descricao Teste", 23.5);
+    boolean resposta = plano.update(planoTeste);
+
+    assertEquals(true, resposta);
 } 
 
 /** 
@@ -67,8 +107,16 @@ public void testUpdate() throws Exception {
 * 
 */ 
 @Test
-public void testDelete() throws Exception { 
-//TODO: Test goes here... 
+public void testDelete() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    Plano planoTeste = new Plano(133, "Nome Teste", "Descricao Teste", 23.5);
+    boolean resposta = plano.delete(planoTeste);
+
+    assertEquals(true, resposta);
 } 
 
 /** 
@@ -77,8 +125,14 @@ public void testDelete() throws Exception {
 * 
 */ 
 @Test
-public void testList() throws Exception { 
-//TODO: Test goes here... 
+public void testList() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    List<Plano> resposta = plano.list();
+    assertNotNull(resposta);
 } 
 
 /** 
@@ -87,8 +141,16 @@ public void testList() throws Exception {
 * 
 */ 
 @Test
-public void testSearch() throws Exception { 
-//TODO: Test goes here... 
+public void testSearch() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    PlanoDAO plano = new PlanoDAO();
+    plano.setConnection(conn);
+
+    Plano planoTeste = new Plano(133, "Nome Teste", "Descricao Teste", 23.5);
+    Plano resposta = plano.search(planoTeste);
+
+    assertNotNull(resposta);
 } 
 
 

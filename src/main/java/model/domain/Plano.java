@@ -4,7 +4,7 @@ public class Plano {
     private int id;
     private String nome;
     private String descricao;
-    private float valor;
+    private double valor;
 
     public Plano(){}
 
@@ -12,7 +12,7 @@ public class Plano {
             int id,
             String nome,
             String descricao,
-            float valor) {
+            double valor) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -31,9 +31,9 @@ public class Plano {
 
     public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public float getValor() { return valor; }
+    public double getValor() { return valor; }
 
-    public void setValor(float valor) { this.valor = valor; }
+    public void setValor(double valor) { this.valor = valor; }
 
     @Override
     public String toString() {

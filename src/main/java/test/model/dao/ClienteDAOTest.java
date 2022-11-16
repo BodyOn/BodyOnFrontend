@@ -3,7 +3,6 @@ package test.model.dao;
 import model.dao.ClienteDAO;
 import model.database.Database;
 import model.database.DatabaseFactory;
-import model.database.DatabasePostgreSQL;
 import model.domain.Cliente;
 import org.junit.Test;
 import org.junit.Before; 
@@ -119,7 +118,6 @@ public void testList() throws Exception {
     Database db = DatabaseFactory.getDatabase("postgresql");
     Connection conn = db.connect();
     ClienteDAO cliente = new ClienteDAO();
-    Cliente clienteTeste = new Cliente(133, "Teste Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
     cliente.setConnection(conn);
     List<Cliente> resposta = cliente.list();
     assertNotNull(resposta);

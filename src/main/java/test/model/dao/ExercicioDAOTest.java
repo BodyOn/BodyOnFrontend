@@ -1,8 +1,20 @@
 package test.model.dao; 
 
-import org.junit.Test; 
+import model.dao.DonoDAO;
+import model.dao.ExercicioDAO;
+import model.database.Database;
+import model.database.DatabaseFactory;
+import model.domain.Dono;
+import model.domain.Exercicio;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+
+import java.sql.Connection;
+import java.util.List;
+
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 
 /** 
 * ExercicioDAO Tester. 
@@ -27,8 +39,14 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testGetConnection() throws Exception { 
-//TODO: Test goes here... 
+public void testGetConnection() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+
+    exercicio.setConnection(conn);
+    Connection newConn = exercicio.getConnection();
+    assertEquals(conn, newConn);
 } 
 
 /** 
@@ -37,8 +55,14 @@ public void testGetConnection() throws Exception {
 * 
 */ 
 @Test
-public void testSetConnection() throws Exception { 
-//TODO: Test goes here... 
+public void testSetConnection() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+
+    exercicio.setConnection(conn);
+    Connection newConn = exercicio.getConnection();
+    assertEquals(conn, newConn);
 } 
 
 /** 
@@ -47,8 +71,16 @@ public void testSetConnection() throws Exception {
 * 
 */ 
 @Test
-public void testInsert() throws Exception { 
-//TODO: Test goes here... 
+public void testInsert() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+
+    Exercicio exercicioTeste = new Exercicio(133, "Nome Teste", 4, 12, 1);
+    exercicio.setConnection(conn);
+    boolean resposta = exercicio.insert(exercicioTeste);
+
+    assertEquals(true, resposta);
 } 
 
 /** 
@@ -57,8 +89,16 @@ public void testInsert() throws Exception {
 * 
 */ 
 @Test
-public void testUpdate() throws Exception { 
-//TODO: Test goes here... 
+public void testUpdate() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+
+    Exercicio exercicioTeste = new Exercicio(133, "Nome Teste Teste", 4, 12, 1);
+    exercicio.setConnection(conn);
+    boolean resposta = exercicio.update(exercicioTeste);
+
+    assertEquals(true, resposta);
 } 
 
 /** 
@@ -67,8 +107,16 @@ public void testUpdate() throws Exception {
 * 
 */ 
 @Test
-public void testDelete() throws Exception { 
-//TODO: Test goes here... 
+public void testDelete() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+
+    Exercicio exercicioTeste = new Exercicio(133, "Nome Teste Teste", 4, 12, 1);
+    exercicio.setConnection(conn);
+    boolean resposta = exercicio.delete(exercicioTeste);
+
+    assertEquals(true, resposta);
 } 
 
 /** 
@@ -77,8 +125,13 @@ public void testDelete() throws Exception {
 * 
 */ 
 @Test
-public void testList() throws Exception { 
-//TODO: Test goes here... 
+public void testList() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+    exercicio.setConnection(conn);
+    List<Exercicio> resposta = exercicio.list();
+    assertNotNull(resposta);
 } 
 
 /** 
@@ -87,8 +140,16 @@ public void testList() throws Exception {
 * 
 */ 
 @Test
-public void testSearch() throws Exception { 
-//TODO: Test goes here... 
+public void testSearch() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ExercicioDAO exercicio = new ExercicioDAO();
+
+    Exercicio exercicioTeste = new Exercicio(133, "Nome Teste Teste", 4, 12, 1);
+    exercicio.setConnection(conn);
+    Exercicio resposta = exercicio.search(exercicioTeste);
+
+    assertNotNull(resposta);
 } 
 
 
