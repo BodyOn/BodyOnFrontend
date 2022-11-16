@@ -1,6 +1,7 @@
 package model.domain;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Cliente implements Serializable {
 
@@ -10,11 +11,11 @@ public class Cliente implements Serializable {
     private String telefone;
     private String email;
     private String cpf;
-    private float peso;
-    private float altura;
+    private double peso;
+    private double altura;
     private String horario;
     private int idPlano;
-    private String dataPagamento;
+    private Date dataPagamento;
     private boolean pendente;
 
     public Cliente(){}
@@ -26,11 +27,11 @@ public class Cliente implements Serializable {
             String telefone,
             String email,
             String cpf,
-            float peso,
-            float altura,
+            double peso,
+            double altura,
             String horario,
             int idPlano,
-            String dataPagamento,
+            Date dataPagamento,
             boolean pendente ) {
         this.id = id;
         this.nome = nome;
@@ -70,13 +71,13 @@ public class Cliente implements Serializable {
 
     public void setCpf(String cpf) { this.cpf = cpf; }
 
-    public float getPeso() { return peso; }
+    public double getPeso() { return peso; }
 
-    public void setPeso(float peso) { this.peso = peso; }
+    public void setPeso(double peso) { this.peso = peso; }
 
-    public float getAltura() { return altura; }
+    public double getAltura() { return altura; }
 
-    public void setAltura(float altura) { this.altura = altura; }
+    public void setAltura(double altura) { this.altura = altura; }
 
     public String getHorario() { return horario; }
 
@@ -86,9 +87,9 @@ public class Cliente implements Serializable {
 
     public void setIdPlano(int idPlano) { this.idPlano = idPlano; }
 
-    public String getDataPagamento() { return dataPagamento; }
+    public Date getDataPagamento() { return dataPagamento; }
 
-    public void setDataPagamento(String dataPagamento) { this.dataPagamento = dataPagamento; }
+    public void setDataPagamento(Date dataPagamento) { this.dataPagamento = dataPagamento; }
 
     public boolean isPendente() { return pendente; }
 

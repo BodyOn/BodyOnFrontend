@@ -35,7 +35,7 @@ public class ClienteDAO {
             stmt.setDouble(8, cliente.getAltura());
             stmt.setString(9, cliente.getHorario());
             stmt.setInt(10, cliente.getIdPlano());
-            stmt.setString(11, cliente.getDataPagamento());
+            stmt.setDate(11, cliente.getDataPagamento());
             stmt.setBoolean(12, cliente.isPendente());
             stmt.execute();
             return true;
@@ -60,7 +60,7 @@ public class ClienteDAO {
             stmt.setDouble(7, cliente.getAltura());
             stmt.setString(8, cliente.getHorario());
             stmt.setInt(9, cliente.getIdPlano());
-            stmt.setString(10, cliente.getDataPagamento());
+            stmt.setDate(10, cliente.getDataPagamento());
             stmt.setBoolean(11, cliente.isPendente());
             stmt.setInt(12, cliente.getId());
             stmt.execute();
@@ -103,11 +103,11 @@ public class ClienteDAO {
                 cliente.setTelefone(resultado.getString("telefone"));
                 cliente.setEmail(resultado.getString("email"));
                 cliente.setCpf(resultado.getString("cpf"));
-                cliente.setPeso(resultado.getFloat("peso"));
-                cliente.setAltura(resultado.getFloat("altura"));
+                cliente.setPeso(resultado.getDouble("peso"));
+                cliente.setAltura(resultado.getDouble("altura"));
                 cliente.setHorario(resultado.getString("horario"));
                 cliente.setIdPlano(resultado.getInt("id_plano"));
-                cliente.setDataPagamento(resultado.getString("data_pagamento"));
+                cliente.setDataPagamento(resultado.getDate("data_pagamento"));
                 cliente.setPendente(resultado.getBoolean("pendente"));
 
                 retorno.add(cliente);
@@ -135,11 +135,11 @@ public class ClienteDAO {
                 cliente.setTelefone(resultado.getString("telefone"));
                 cliente.setEmail(resultado.getString("email"));
                 cliente.setCpf(resultado.getString("cpf"));
-                cliente.setPeso(resultado.getFloat("peso"));
-                cliente.setAltura(resultado.getFloat("altura"));
+                cliente.setPeso(resultado.getDouble("peso"));
+                cliente.setAltura(resultado.getDouble("altura"));
                 cliente.setHorario(resultado.getString("horario"));
                 cliente.setIdPlano(resultado.getInt("id_plano"));
-                cliente.setDataPagamento(resultado.getString("data_pagamento"));
+                cliente.setDataPagamento(resultado.getDate("data_pagamento"));
                 cliente.setPendente(resultado.getBoolean("pendente"));
 
                 retorno = cliente;
@@ -151,4 +151,6 @@ public class ClienteDAO {
         }
         return retorno;
     }
+
+
 }
