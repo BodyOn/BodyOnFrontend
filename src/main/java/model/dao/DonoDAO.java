@@ -121,7 +121,6 @@ public class DonoDAO {
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
 
-                dono.setId(resultado.getInt("id_dono"));
                 dono.setNome(resultado.getString("nome"));
                 dono.setCpf(resultado.getString("cpf"));
                 dono.setTelefone(resultado.getString("telefone"));

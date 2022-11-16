@@ -130,7 +130,6 @@ public class ClienteDAO {
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
 
-                cliente.setId(resultado.getInt("id_cliente"));
                 cliente.setNome(resultado.getString("nome"));
                 cliente.setEndereco(resultado.getString("endereco"));
                 cliente.setTelefone(resultado.getString("telefone"));

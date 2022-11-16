@@ -5,7 +5,7 @@ public class Exercicio {
     private String nome;
     private int qtdSeries;
     private int qtdRepeticoes;
-    private String idCliente;
+    private int idCliente;
 
     public Exercicio(){}
 
@@ -14,7 +14,7 @@ public class Exercicio {
             String nome,
             int qtdSeries,
             int qtdRepeticoes,
-            String idCliente) {
+            int idCliente) {
         this.id = id;
         this.nome = nome;
         this.qtdSeries = qtdSeries;
@@ -38,9 +38,9 @@ public class Exercicio {
 
     public void setQtdRepeticoes(int qtdRepeticoes) { this.qtdRepeticoes = qtdRepeticoes; }
 
-    public String getIdCliente() { return idCliente; }
+    public int getIdCliente() { return idCliente; }
 
-    public void setIdCliente(String idCliente) { this.idCliente = idCliente; }
+    public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
 
     @Override
     public String toString() {
