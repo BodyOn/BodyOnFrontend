@@ -15,7 +15,7 @@ public class Teste extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("cliente.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("cliente.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 610);
         stage.setTitle("BodyOn");
         stage.setResizable(false);

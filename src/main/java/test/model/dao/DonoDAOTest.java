@@ -1,17 +1,14 @@
-package test.model.dao; 
+package test.model.dao;
 
-import model.dao.ClienteDAO;
 import model.dao.DonoDAO;
 import model.database.Database;
 import model.database.DatabaseFactory;
-import model.domain.Cliente;
 import model.domain.Dono;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;

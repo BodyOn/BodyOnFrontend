@@ -1,11 +1,10 @@
 package com.example.bodyonfront;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.domain.Cliente;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,12 +30,10 @@ public class RegisterClientController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         clientSchedule.getItems().addAll(Schedule);
         deleteClient.setOnAction(event -> deleteClient());
-
-        // chooseOperation(-1);
     }
 
-    public void chooseOperation(int idClient) {
-        if (idClient == -1) {
+    public void chooseOperation(Cliente client) {
+        if (client == null) {
             mainOperationButton.setOnAction(event -> registerClient());
             deleteClient.setVisible(false);
         }else{
@@ -44,12 +41,24 @@ public class RegisterClientController implements Initializable {
             deleteClient.setVisible(false);
 
             // pega cliente no bd
-             clientName.setText("quando pegar do bd so mudar os campos");
+
+            // setando os dados
+            clientName.setText(client.getNome());
+            clientAddress.setText(client.getEndereco());
+            clientEmail.setText(client.getEmail());
+            clientCpf.setText(client.getCpf());
+            clientFone.setText(client.getTelefone());
+            // clientSchedule.setText(client.getNome());
+            clientWeight.setText((String.valueOf(client.getPeso())));
+            clientHeight.setText((String.valueOf(client.getAltura())));
+            // clientPayday.setText(client.getNome());
+            clientPendency.setVisible(client.isPendente());
         }
     }
 
     @FXML
     protected void registerClient() {
+        // TODO
         System.out.println("registrou");
     }
 

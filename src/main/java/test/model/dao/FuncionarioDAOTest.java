@@ -1,10 +1,8 @@
-package test.model.dao; 
+package test.model.dao;
 
-import model.dao.ExercicioDAO;
 import model.dao.FuncionarioDAO;
 import model.database.Database;
 import model.database.DatabaseFactory;
-import model.domain.Exercicio;
 import model.domain.Funcionario;
 import org.junit.Test;
 import org.junit.Before; 

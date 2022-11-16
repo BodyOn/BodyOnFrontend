@@ -114,8 +114,7 @@ public class ClienteDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(
-                    ClienteDAO.class.getName()).log(Level.SEVERE, null, ex
-            );
+                    ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
     }

@@ -1,4 +1,4 @@
-package test.model.database; 
+package test.model.database;
 
 import org.junit.Test; 
 import org.junit.Before; 

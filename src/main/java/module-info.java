@@ -8,4 +8,5 @@ module com.example.bodyonfront {
     opens com.example.bodyonfront to javafx.fxml;
     exports com.example.bodyonfront;
     exports test.model.dao;
+    exports model.domain;
 }

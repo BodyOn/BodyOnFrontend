@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bodyonfront.HomeController">
    <top>
       <AnchorPane prefHeight="600.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>
@@ -40,11 +40,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" text="Clientes" />
                         <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Exercicios" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" text="Clientes" />
                         <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Pendentes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Clientes" />
+                        <Button fx:id="clientButton" mnemonicParsing="false" onAction="#onClientButtonClick" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Clientes" />
                         <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Funcionarios" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
