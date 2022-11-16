@@ -11,6 +11,7 @@ import org.junit.After;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.util.List;
 
 import static junit.framework.TestCase.*;
 
@@ -37,7 +38,6 @@ public void testGetConnection() throws Exception {
 
     cliente.setConnection(conn);
     Connection newConn = cliente.getConnection();
-    System.out.println("console ta aqui ja jumentao" + newConn);
     assertEquals(conn, newConn);
 
 } 
@@ -81,19 +81,33 @@ public void testInsert() throws Exception {
 * 
 */ 
 @Test
-public void testUpdate() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testUpdate() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ClienteDAO cliente = new ClienteDAO();
+    Cliente clienteTeste = new Cliente(133, "Teste Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
+    cliente.setConnection(conn);
+    boolean resposta = cliente.update(clienteTeste);
 
-/** 
-* 
-* Method: delete(Cliente cliente) 
-* 
-*/ 
+    assertEquals(true, resposta);
+}
+
+/**
+*
+* Method: delete(Cliente cliente)
+*
+*/
 @Test
-public void testDelete() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testDelete() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ClienteDAO cliente = new ClienteDAO();
+    Cliente clienteTeste = new Cliente(133, "Teste Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
+    cliente.setConnection(conn);
+    boolean resposta = cliente.delete(clienteTeste);
+
+    assertEquals(true, resposta);
+}
 
 /** 
 * 
@@ -101,8 +115,14 @@ public void testDelete() throws Exception {
 * 
 */ 
 @Test
-public void testList() throws Exception { 
-//TODO: Test goes here... 
+public void testList() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ClienteDAO cliente = new ClienteDAO();
+    Cliente clienteTeste = new Cliente(133, "Teste Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
+    cliente.setConnection(conn);
+    List<Cliente> resposta = cliente.list();
+    assertNotNull(resposta);
 } 
 
 /** 
@@ -111,9 +131,15 @@ public void testList() throws Exception {
 * 
 */ 
 @Test
-public void testSearch() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testSearch() throws Exception {
+    Database db = DatabaseFactory.getDatabase("postgresql");
+    Connection conn = db.connect();
+    ClienteDAO cliente = new ClienteDAO();
+    Cliente clienteTeste = new Cliente(133, "Teste Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
+    cliente.setConnection(conn);
+    Cliente resposta = cliente.search(clienteTeste);
+    assertNotNull(resposta);
+}
 
 
 } 
