@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bodyonfront.EmployeeController">
    <right>
       <AnchorPane prefHeight="608.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,20 +22,20 @@
                   </Label>
                </children>
             </Pane>
-            <TableView layoutX="8.0" layoutY="251.0" prefHeight="347.0" prefWidth="900.0">
+            <TableView layoutX="8.0" layoutY="251.0" prefHeight="347.0" prefWidth="900.0" fx:id="employeeTable">
               <columns>
-                <TableColumn prefWidth="75.0" text="id" />
-                  <TableColumn prefWidth="75.0" text="Nome" />
-                  <TableColumn prefWidth="75.0" text="CPF" />
-                  <TableColumn prefWidth="75.0" text="Email" />
-                  <TableColumn prefWidth="75.0" text="Telefone" />
-                  <TableColumn prefWidth="75.0" text="Endereco" />
-                  <TableColumn prefWidth="75.0" text="Cargo" />
-                  <TableColumn prefWidth="75.0" text="Horario" />
+                <TableColumn prefWidth="75.0" text="id" fx:id="tableColumnEmployeeId" />
+                  <TableColumn prefWidth="75.0" text="Nome" fx:id="tableColumnEmployeeName" />
+                  <TableColumn prefWidth="75.0" text="CPF" fx:id="tableColumnEmployeeCpf" />
+                  <TableColumn prefWidth="75.0" text="Email" fx:id="tableColumnEmployeeEmail" />
+                  <TableColumn prefWidth="75.0" text="Telefone" fx:id="tableColumnEmployeeFone" />
+                  <TableColumn prefWidth="75.0" text="Endereco" fx:id="tableColumnEmployeeAddress" />
+                  <TableColumn prefWidth="75.0" text="Cargo" fx:id="tableColumnEmployeePosition" />
+                  <TableColumn prefWidth="75.0" text="Horario" fx:id="tableColumnEmployeeSchedule" />
               </columns>
             </TableView>
             <Button layoutX="23.0" layoutY="207.0" mnemonicParsing="false" text="Home" />
-            <Button layoutX="773.0" layoutY="207.0" mnemonicParsing="false" text="Adicionar Funcionario" />
+            <Button fx:id="registerEmployeeButton" layoutX="773.0" layoutY="207.0" onAction="#onRegisterEmployeeButtonClick" mnemonicParsing="false" text="Adicionar Funcionario" />
          </children>
       </AnchorPane>
    </right>

@@ -23,4 +23,15 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void onEmployeeButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("funcionarios.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 900 , 600);
+        Stage stage = new Stage();
+        stage.setTitle("BodyOn");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

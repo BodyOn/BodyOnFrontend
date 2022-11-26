@@ -3,7 +3,6 @@ package model.domain;
 import java.io.Serializable;
 
 public class Funcionario implements Serializable {
-
     private int id;
     private String nome;
     private String cpf;

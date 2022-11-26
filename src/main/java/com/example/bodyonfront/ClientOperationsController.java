@@ -8,19 +8,32 @@ import model.domain.Cliente;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterClientController implements Initializable {
+public class ClientOperationsController implements Initializable {
+    @FXML
     public TextField clientName;
+    @FXML
     public TextField clientAddress;
+    @FXML
     public TextField clientEmail;
+    @FXML
     public TextField clientCpf;
+    @FXML
     public TextField clientFone;
+    @FXML
     public ComboBox<String> clientSchedule;
+    @FXML
     public TextField clientWeight;
+    @FXML
     public TextField clientHeight;
+    @FXML
     public DatePicker clientPayday;
+    @FXML
     public RadioButton clientPendency;
+    @FXML
     public Button mainOperationButton;
+    @FXML
     public Button cancelButton;
+    @FXML
     public Button deleteClient;
 
     String[] Schedule = new String[]{"7:00 - 9:00", "9:00 - 11:00", "11:00 - 13:00", "13:00 - 15:00",
@@ -38,7 +51,7 @@ public class RegisterClientController implements Initializable {
             deleteClient.setVisible(false);
         }else{
             mainOperationButton.setOnAction(event -> editClient());
-            deleteClient.setVisible(false);
+            deleteClient.setVisible(true);
 
             // pega cliente no bd
 

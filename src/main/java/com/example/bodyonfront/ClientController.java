@@ -44,7 +44,7 @@ public class ClientController implements Initializable {
     public TableColumn<Cliente, Boolean> tableColumnClientPendency;
     @FXML
     public TableColumn<Cliente, Double> tableColumnClientWeight;
-
+    @FXML
     public TableColumn<Cliente, Double> tableColumnClientHeight;
     @FXML
     public Button registerClientButton;
@@ -88,11 +88,11 @@ public class ClientController implements Initializable {
     }
 
     public void onRegisterClientButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registerClient.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clientOperations.fxml"));
         Parent root = fxmlLoader.load();
 
-        RegisterClientController registerClientController = fxmlLoader.getController();
-        registerClientController.chooseOperation(null);
+        ClientOperationsController clientOperationsController = fxmlLoader.getController();
+        clientOperationsController.chooseOperation(null);
 
         Stage stage = new Stage();
         stage.setTitle("BodyOn");
@@ -103,11 +103,11 @@ public class ClientController implements Initializable {
 
     public void onTableItemClick(Cliente client)  {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registerClient.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clientOperations.fxml"));
             Parent root = fxmlLoader.load();
 
-            RegisterClientController registerClientController = fxmlLoader.getController();
-            registerClientController.chooseOperation(client);
+            ClientOperationsController clientOperationsController = fxmlLoader.getController();
+            clientOperationsController.chooseOperation(client);
 
             Stage stage = new Stage();
             stage.setTitle("BodyOn");

@@ -43,7 +43,7 @@
                         <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Exercicios" GridPane.rowIndex="1" />
                         <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Pendentes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Button fx:id="clientButton" mnemonicParsing="false" onAction="#onClientButtonClick" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Clientes" />
-                        <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" stylesheets="@style.css" text="Funcionarios" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="288.0" onAction="#onEmployeeButtonClick" stylesheets="@style.css" text="Funcionarios" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </children>
