@@ -39,6 +39,7 @@
             </TableView>
             <Button layoutX="23.0" layoutY="207.0" mnemonicParsing="false" text="Home" />
             <Button fx:id="registerClientButton" layoutX="787.0" layoutY="207.0" mnemonicParsing="false" onAction="#onRegisterClientButtonClick" text="Adicionar Cliente" />
+            <Button fx:id="pendencyButton" layoutX="660.0" layoutY="207.0" mnemonicParsing="false" onAction="#onPendencyButtonClick" text="Clientes pendentes" />
          </children>
       </AnchorPane>
    </right>
