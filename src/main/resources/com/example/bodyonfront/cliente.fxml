@@ -10,37 +10,37 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bodyonfront.ClientController">
-   <right>
-      <AnchorPane prefHeight="608.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-         <children>
-            <Pane layoutX="-7.0" prefHeight="200.0" prefWidth="914.0" style="-fx-background-color: #263F73;">
-               <children>
-                  <Label layoutX="70.0" layoutY="65.0" text="BodyOn" textFill="WHITE">
-                     <font>
-                        <Font size="48.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <TableView fx:id="clientTable" layoutX="8.0" layoutY="251.0" prefHeight="347.0" prefWidth="900.0">
-              <columns>
-                <TableColumn fx:id="tableColumnClientAddressNome" prefWidth="75.0" text="Nome" />
-                  <TableColumn fx:id="tableColumnClientAddress" prefWidth="75.0" text="Endereco" />
-                  <TableColumn fx:id="tableColumnClientFone" prefWidth="75.0" text="Telefone" />
-                  <TableColumn fx:id="tableColumnClientEmail" prefWidth="75.0" text="Email" />
-                  <TableColumn fx:id="tableColumnClientCpf" prefWidth="72.79998779296875" text="CPF" />
-                  <TableColumn fx:id="tableColumnClientSchedule" prefWidth="78.4000244140625" text="Horario" />
-                  <TableColumn fx:id="tableColumnClientPlanId" prefWidth="75.0" text="id plano" />
-                  <TableColumn fx:id="tableColumnClientPayday" prefWidth="158.4000244140625" text="Data pagemento" />
-                  <TableColumn fx:id="tableColumnClientPendency" prefWidth="78.4000244140625" text="Pendente" />
-                  <TableColumn fx:id="tableColumnClientWeight" prefWidth="67.9998779296875" text="Peso" />
-                  <TableColumn fx:id="tableColumnClientHeight" prefWidth="68.7999267578125" text="Altura" />
-              </columns>
-            </TableView>
-            <Button layoutX="23.0" layoutY="207.0" mnemonicParsing="false" text="Home" />
-            <Button fx:id="registerClientButton" layoutX="787.0" layoutY="207.0" mnemonicParsing="false" onAction="#onRegisterClientButtonClick" text="Adicionar Cliente" />
-            <Button fx:id="pendencyButton" layoutX="660.0" layoutY="207.0" mnemonicParsing="false" onAction="#onPendencyButtonClick" text="Clientes pendentes" />
-         </children>
-      </AnchorPane>
-   </right>
+    <right>
+        <AnchorPane prefHeight="850.0" prefWidth="1533.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="200.0" prefWidth="1538.0" style="-fx-background-color: #263F73;">
+                    <children>
+                        <Label layoutX="70.0" layoutY="65.0" text="BodyOn" textFill="WHITE">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <TableView fx:id="clientTable" layoutX="8.0" layoutY="251.0" prefHeight="570.0" prefWidth="1522.0">
+                    <columns>
+                        <TableColumn fx:id="tableColumnClientAddressNome" prefWidth="200.2666893005371" text="Nome" />
+                        <TableColumn fx:id="tableColumnClientAddress" prefWidth="139.73330688476562" text="Endereco" />
+                        <TableColumn fx:id="tableColumnClientFone" prefWidth="104.53326416015625" text="Telefone" />
+                        <TableColumn fx:id="tableColumnClientEmail" prefWidth="172.7999267578125" text="Email" />
+                        <TableColumn fx:id="tableColumnClientCpf" prefWidth="128.0" text="CPF" />
+                        <TableColumn fx:id="tableColumnClientSchedule" prefWidth="104.26666259765625" text="Horario" />
+                        <TableColumn fx:id="tableColumnClientPlanId" prefWidth="158.13330078125" text="id plano" />
+                        <TableColumn fx:id="tableColumnClientPayday" prefWidth="138.13323974609375" text="Data pagemento" />
+                        <TableColumn fx:id="tableColumnClientPendency" prefWidth="90.66650390625" text="Pendente" />
+                        <TableColumn fx:id="tableColumnClientWeight" minWidth="0.0" prefWidth="118.13330078125" text="Peso" />
+                        <TableColumn fx:id="tableColumnClientHeight" minWidth="-1.0" prefWidth="158.666748046875" text="Altura" />
+                    </columns>
+                </TableView>
+                <Button layoutX="8.0" layoutY="214.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+                <Button fx:id="registerClientButton" layoutX="1423.0" layoutY="213.0" mnemonicParsing="false" onAction="#onRegisterClientButtonClick" text="Adicionar Cliente" />
+                <Button fx:id="pendencyButton" layoutX="1296.0" layoutY="213.0" mnemonicParsing="false" onAction="#onPendencyButtonClick" text="Clientes pendentes" />
+            </children>
+        </AnchorPane>
+    </right>
 </BorderPane>

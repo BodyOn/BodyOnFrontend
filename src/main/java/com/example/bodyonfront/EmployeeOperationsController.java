@@ -1,7 +1,9 @@
 package com.example.bodyonfront;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import model.domain.Funcionario;
 
@@ -35,15 +37,15 @@ public class EmployeeOperationsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EmployeeSchedule.getItems().addAll(Schedule);
-        deleteEmployee.setOnAction(event -> deleteEmployee());
+        deleteEmployee.setOnAction(this::deleteEmployee);
     }
 
     public void chooseOperation(Funcionario funcionario) {
         if (funcionario == null) {
-            mainOperationButton.setOnAction(event -> registerEmployee());
+            mainOperationButton.setOnAction(this::registerEmployee);
             deleteEmployee.setVisible(false);
         }else{
-            mainOperationButton.setOnAction(event -> editEmployee());
+            mainOperationButton.setOnAction(this::editEmployee);
             deleteEmployee.setVisible(true);
 
             // pega cliente no bd
@@ -59,18 +61,22 @@ public class EmployeeOperationsController implements Initializable {
     }
 
     @FXML
-    protected void registerEmployee() {
+    protected void registerEmployee(ActionEvent event) {
         // TODO
-        System.out.println("registrou");
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
-    public void editEmployee() {
+    public void editEmployee(ActionEvent event) {
         // TODO
-        System.out.println("editou");
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
-    public void deleteEmployee() {
+    public void deleteEmployee(ActionEvent event) {
         // TODO
-        System.out.println("deletou");
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+
+    public void onCancelButton(ActionEvent event) {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 }

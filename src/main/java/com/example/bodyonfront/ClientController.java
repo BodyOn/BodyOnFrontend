@@ -2,9 +2,11 @@ package com.example.bodyonfront;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -179,9 +181,29 @@ public class ClientController implements Initializable {
             stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.show();
+            stage.requestFocus();
+            stage.toFront();
+            stage.setAlwaysOnTop(true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public void onHomeButtonClick(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("BodyOn");
+            stage.setResizable(false);
+            stage.setMaximized(true);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

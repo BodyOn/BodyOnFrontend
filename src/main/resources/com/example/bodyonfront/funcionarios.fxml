@@ -10,33 +10,33 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bodyonfront.EmployeeController">
-   <right>
-      <AnchorPane prefHeight="608.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-         <children>
-            <Pane layoutX="-7.0" prefHeight="200.0" prefWidth="914.0" style="-fx-background-color: #263F73;">
-               <children>
-                  <Label layoutX="70.0" layoutY="65.0" text="BodyOn" textFill="WHITE">
-                     <font>
-                        <Font size="48.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <TableView layoutX="8.0" layoutY="251.0" prefHeight="347.0" prefWidth="900.0" fx:id="employeeTable">
-              <columns>
-                <TableColumn prefWidth="75.0" text="id" fx:id="tableColumnEmployeeId" />
-                  <TableColumn prefWidth="75.0" text="Nome" fx:id="tableColumnEmployeeName" />
-                  <TableColumn prefWidth="75.0" text="CPF" fx:id="tableColumnEmployeeCpf" />
-                  <TableColumn prefWidth="75.0" text="Email" fx:id="tableColumnEmployeeEmail" />
-                  <TableColumn prefWidth="75.0" text="Telefone" fx:id="tableColumnEmployeeFone" />
-                  <TableColumn prefWidth="75.0" text="Endereco" fx:id="tableColumnEmployeeAddress" />
-                  <TableColumn prefWidth="75.0" text="Cargo" fx:id="tableColumnEmployeePosition" />
-                  <TableColumn prefWidth="75.0" text="Horario" fx:id="tableColumnEmployeeSchedule" />
-              </columns>
-            </TableView>
-            <Button layoutX="23.0" layoutY="207.0" mnemonicParsing="false" text="Home" />
-            <Button fx:id="registerEmployeeButton" layoutX="773.0" layoutY="207.0" onAction="#onRegisterEmployeeButtonClick" mnemonicParsing="false" text="Adicionar Funcionario" />
-         </children>
-      </AnchorPane>
-   </right>
+    <right>
+        <AnchorPane prefHeight="831.0" prefWidth="1532.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane layoutX="-7.0" prefHeight="200.0" prefWidth="1538.0" style="-fx-background-color: #263F73;">
+                    <children>
+                        <Label layoutX="70.0" layoutY="65.0" text="BodyOn" textFill="WHITE">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <TableView fx:id="employeeTable" layoutX="8.0" layoutY="251.0" prefHeight="570.0" prefWidth="1518.0">
+                    <columns>
+                        <TableColumn fx:id="tableColumnEmployeeId" prefWidth="52.800010681152344" text="id" />
+                        <TableColumn fx:id="tableColumnEmployeeName" prefWidth="269.86667251586914" text="Nome" />
+                        <TableColumn fx:id="tableColumnEmployeeCpf" prefWidth="173.33331298828125" text="CPF" />
+                        <TableColumn fx:id="tableColumnEmployeeEmail" prefWidth="254.66656494140625" text="Email" />
+                        <TableColumn fx:id="tableColumnEmployeeFone" minWidth="0.0" prefWidth="139.20004272460938" text="Telefone" />
+                        <TableColumn fx:id="tableColumnEmployeeAddress" prefWidth="288.800048828125" text="Endereco" />
+                        <TableColumn fx:id="tableColumnEmployeePosition" prefWidth="158.933349609375" text="Cargo" />
+                        <TableColumn fx:id="tableColumnEmployeeSchedule" prefWidth="179.466796875" text="Horario" />
+                    </columns>
+                </TableView>
+                <Button layoutX="9.0" layoutY="212.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+                <Button fx:id="registerEmployeeButton" layoutX="1391.0" layoutY="213.0" mnemonicParsing="false" onAction="#onRegisterEmployeeButtonClick" text="Adicionar Funcionario" />
+            </children>
+        </AnchorPane>
+    </right>
 </BorderPane>

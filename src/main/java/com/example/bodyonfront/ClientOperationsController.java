@@ -1,7 +1,9 @@
 package com.example.bodyonfront;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import model.dao.ClienteDAO;
 import model.database.Database;
@@ -52,15 +54,15 @@ public class ClientOperationsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         clientSchedule.getItems().addAll(Schedule);
-        deleteClient.setOnAction(event -> deleteClient());
+        deleteClient.setOnAction(this::deleteClient);
     }
 
     public void chooseOperation(Cliente client) {
         if (client == null) {
-            mainOperationButton.setOnAction(event -> registerClient());
+            mainOperationButton.setOnAction(this::registerClient);
             deleteClient.setVisible(false);
         }else{
-            mainOperationButton.setOnAction(event -> editClient());
+            mainOperationButton.setOnAction(this::editClient);
             deleteClient.setVisible(true);
 
             // pega cliente no db
@@ -83,7 +85,7 @@ public class ClientOperationsController implements Initializable {
     }
 
     @FXML
-    protected void registerClient() {
+    protected void registerClient(ActionEvent event) {
         Database db = DatabaseFactory.getDatabase("postgresql");
         Connection conn = db.connect();
         ClienteDAO cliente = new ClienteDAO();
@@ -110,12 +112,12 @@ public class ClientOperationsController implements Initializable {
         boolean resposta = cliente.insertById(insertClient);
 
         if(resposta){
-            //fechar o modal e voltar reinicializar o principal pra carregar a lista de clientes dnv
+            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
 
     }
 
-    public void editClient() {
+    public void editClient(ActionEvent event) {
         Database db = DatabaseFactory.getDatabase("postgresql");
         Connection conn = db.connect();
         ClienteDAO cliente = new ClienteDAO();
@@ -142,11 +144,11 @@ public class ClientOperationsController implements Initializable {
         boolean resposta = cliente.update(updateClient);
 
         if(resposta){
-            //fechar o modal e voltar reinicializar o principal pra carregar a lista de clientes dnv
+            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
     }
 
-    public void deleteClient() {
+    public void deleteClient(ActionEvent event) {
         Database db = DatabaseFactory.getDatabase("postgresql");
         Connection conn = db.connect();
         ClienteDAO cliente = new ClienteDAO();
@@ -173,7 +175,11 @@ public class ClientOperationsController implements Initializable {
         boolean resposta = cliente.delete(deleteClient);
 
         if(resposta){
-            //fechar o modal e voltar reinicializar o principal pra carregar a lista de clientes dnv
+            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
+    }
+
+    public void onCancelButton(ActionEvent event) {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 }
