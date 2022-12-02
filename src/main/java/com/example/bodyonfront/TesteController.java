@@ -1,66 +1,34 @@
 package com.example.bodyonfront;
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.TableView;
+import model.dao.ClienteDAO;
+import model.database.Database;
+import model.database.DatabaseFactory;
+import model.domain.Cliente;
 
-import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class TesteController {
 
     @FXML
-    public TextField usernameTextField;
-    @FXML
-    public PasswordField passwordTextField;
+    private TableView<Cliente> tableViewCliente;
+    private List<Cliente> clientesList;
+    private Database db = DatabaseFactory.getDatabase("postgresql");
+    private Connection conn = db.connect();
+    private ClienteDAO clienteDAO = new ClienteDAO();
+    private ObservableList<Cliente> observableListClientes;
 
-    @FXML
-    protected void onLoginButtonClick(ActionEvent actionEvent) throws IOException {
-        if(!usernameTextField.getText().isBlank() && !passwordTextField.getText().isBlank()){
-            validateLogin(actionEvent);
-        } else {
-            System.out.println("Por favor digite usuário e senha");
-        }
-    }
+    public void loadTableViewCliente() {
+        clientesList = clienteDAO.list();
 
-    private void validateLogin(ActionEvent event) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        Connection connection = databaseConnection.getConnection();
-
-        String verifyLogin = "SELECT count(1) FROM clientes WHERE nome = '"+usernameTextField.getText()+
-                "'AND senha = '" + passwordTextField.getText() +"'";
-
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-
-            while (queryResult.next()){
-                if (queryResult.getInt(1) == 1){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Stage stage = new Stage();
-                    stage.setTitle("BodyOn");
-                    stage.setResizable(false);
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                }else{
-                    usernameTextField.setText("Falha na autenticação");
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        observableListClientes = FXCollections.observableArrayList(clientesList);
+        tableViewCliente.setItems(observableListClientes);
     }
 }

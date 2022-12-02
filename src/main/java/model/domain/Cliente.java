@@ -47,6 +47,31 @@ public class Cliente implements Serializable {
         this.pendente = pendente;
     }
 
+    public Cliente(
+            String nome,
+            String endereco,
+            String telefone,
+            String email,
+            String cpf,
+            double peso,
+            double altura,
+            String horario,
+            int idPlano,
+            Date dataPagamento,
+            boolean pendente ) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.cpf = cpf;
+        this.peso = peso;
+        this.altura = altura;
+        this.horario = horario;
+        this.idPlano = idPlano;
+        this.dataPagamento = dataPagamento;
+        this.pendente = pendente;
+    }
+
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }

@@ -63,16 +63,33 @@ public void testSetConnection() throws Exception {
 * 
 */ 
 @Test
-public void testInsert() throws Exception {
+public void testInsertById() throws Exception {
     Database db = DatabaseFactory.getDatabase("postgresql");
     Connection conn = db.connect();
     ClienteDAO cliente = new ClienteDAO();
     Cliente clienteTeste = new Cliente(133, "Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
     cliente.setConnection(conn);
-    boolean resposta = cliente.insert(clienteTeste);
+    boolean resposta = cliente.insertById(clienteTeste);
 
     assertEquals(true, resposta);
-} 
+}
+
+    /**
+     *
+     * Method: insert(Cliente cliente)
+     *
+     */
+    @Test
+    public void testInsert() throws Exception {
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        ClienteDAO cliente = new ClienteDAO();
+        Cliente clienteTeste = new Cliente(13, "Teste", "Rua Teste", "Telefone Teste", "Email Teste", "Cpf Teste", 100.6, 1.7, "Horario Teste", 1, new Date(23-3-2002), false);
+        cliente.setConnection(conn);
+        boolean resposta = cliente.insert(clienteTeste);
+
+        assertEquals(true, resposta);
+    }
 
 /** 
 * 

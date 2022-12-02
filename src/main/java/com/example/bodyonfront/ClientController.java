@@ -13,10 +13,14 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.dao.ClienteDAO;
+import model.database.Database;
+import model.database.DatabaseFactory;
 import model.domain.Cliente;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +72,10 @@ public class ClientController implements Initializable {
         tableColumnClientWeight.setCellValueFactory(new PropertyValueFactory<>("peso"));
         tableColumnClientHeight.setCellValueFactory(new PropertyValueFactory<>("altura"));
 
-        mockData();
+        loadClients();
+
+        ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientList);
+        clientTable.setItems(observableList);
 
         // table listener
         clientTable.getSelectionModel().selectedItemProperty().addListener(
@@ -103,6 +110,17 @@ public class ClientController implements Initializable {
         clientTable.setItems(observableList);
     }
 
+    private void loadClients(){
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        ClienteDAO cliente = new ClienteDAO();
+        cliente.setConnection(conn);
+        List<Cliente> resposta = cliente.list();
+
+        clientList.addAll(resposta);
+
+    }
+
     public void onRegisterClientButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clientOperations.fxml"));
         Parent root = fxmlLoader.load();
@@ -122,16 +140,10 @@ public class ClientController implements Initializable {
             // pegar todos os clientes
             clientList.clear();
 
-            Cliente client = new Cliente(0, "isa", "rua tal", "8992828281", "isa@.com",
-                    "922891910", 80.0, 1.80, "9h - 8h", 1, null, true);
-            Cliente client1 = new Cliente(1, "fals", "rua tal", "8992828281", "fals@.com",
-                    "922891910", 80.0, 1.80, "9h - 8h", 1, null, false);
-            Cliente client2 = new Cliente(2, "josus", "rua tal", "8992828281", "josus@.com",
-                    "922891910", 80.0, 1.80, "9h - 8h", 1, null, true);
+            loadClients();
 
-            clientList.add(client);
-            clientList.add(client1);
-            clientList.add(client2);
+            // TODO
+            // Fazer uma função load pendent clients, executar query de busca onde tiver pendente e retornar lista
 
             ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientList);
             clientTable.setItems(observableList);

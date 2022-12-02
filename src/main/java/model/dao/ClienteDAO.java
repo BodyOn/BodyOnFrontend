@@ -20,7 +20,7 @@ public class ClienteDAO {
         this.connection = connection;
     }
 
-    public boolean insert(Cliente cliente) {
+    public boolean insertById(Cliente cliente) {
         String sql = "INSERT INTO clientes(id_cliente, nome, endereco, telefone, email, cpf, peso, altura, horario, id_plano, data_pagamento, pendente) " +
                 "     VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -37,6 +37,32 @@ public class ClienteDAO {
             stmt.setInt(10, cliente.getIdPlano());
             stmt.setDate(11, cliente.getDataPagamento());
             stmt.setBoolean(12, cliente.isPendente());
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(
+                    ClienteDAO.class.getName()).log(Level.SEVERE, null, ex
+            );
+            return false;
+        }
+    }
+
+    public boolean insert(Cliente cliente) {
+        String sql = "INSERT INTO clientes(nome, endereco, telefone, email, cpf, peso, altura, horario, id_plano, data_pagamento, pendente) " +
+                "     VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getEndereco());
+            stmt.setString(3, cliente.getTelefone());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getCpf());
+            stmt.setDouble(6, cliente.getPeso());
+            stmt.setDouble(7, cliente.getAltura());
+            stmt.setString(8, cliente.getHorario());
+            stmt.setInt(9, cliente.getIdPlano());
+            stmt.setDate(10, cliente.getDataPagamento());
+            stmt.setBoolean(11, cliente.isPendente());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
