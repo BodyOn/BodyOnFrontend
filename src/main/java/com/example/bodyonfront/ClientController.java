@@ -139,28 +139,22 @@ public class ClientController implements Initializable {
 
     public void onPendencyButtonClick() {
         if (pendencyButtonClicked) {
-            // pegar todos os clientes
+
             clientList.clear();
 
             loadClients();
-
-            // TODO
-            // Fazer uma função load pendent clients, executar query de busca onde tiver pendente e retornar lista
 
             ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientList);
             clientTable.setItems(observableList);
             pendencyButtonClicked = false;
         }else{
-            // pegar todos os clientes pendentes
-            clientList.clear();
 
-            Cliente client = new Cliente(0, "isa", "rua tal", "8992828281", "isa@.com",
-                    "922891910", 80.0, 1.80, "9h - 8h", 1, null, true);
-            Cliente client2 = new Cliente(2, "josus", "rua tal", "8992828281", "josus@.com",
-                    "922891910", 80.0, 1.80, "9h - 8h", 1, null, true);
-
-            clientList.add(client);
-            clientList.add(client2);
+            for (Cliente c:
+                 clientList) {
+                if(!c.isPendente()){
+                    clientList.remove(c);
+                }
+            }
 
             ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientList);
             clientTable.setItems(observableList);

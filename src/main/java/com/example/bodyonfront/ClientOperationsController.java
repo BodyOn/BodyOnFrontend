@@ -92,9 +92,11 @@ public class ClientOperationsController implements Initializable {
 
         LocalDate payday = clientPayday.getValue();
 
+        //TODO
+        //REMOVER ISSO QUANDO TIVER TERMINADO
+        System.out.println("CLIENT ID " + clientId);
 
         Cliente insertClient = new Cliente(
-                                        465,
                                         clientName.getText(),
                                         clientAddress.getText(),
                                         clientFone.getText(),
@@ -124,6 +126,9 @@ public class ClientOperationsController implements Initializable {
 
         LocalDate payday = clientPayday.getValue();
 
+        //TODO
+        //REMOVER ISSO QUANDO TIVER TERMINADO
+        System.out.println("CLIENT ID " + clientId);
 
         Cliente updateClient = new Cliente(
                 clientId,
@@ -155,6 +160,9 @@ public class ClientOperationsController implements Initializable {
 
         LocalDate payday = clientPayday.getValue();
 
+        //TODO
+        //REMOVER ISSO QUANDO TIVER TERMINADO
+        System.out.println("CLIENT ID " + clientId);
 
         Cliente deleteClient = new Cliente(
                 clientId,
