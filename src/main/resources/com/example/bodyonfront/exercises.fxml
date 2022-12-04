@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bodyonfront.ClientController">
-   <right>
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
       <AnchorPane prefHeight="608.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="-7.0" prefHeight="200.0" prefWidth="914.0" style="-fx-background-color: #263F73;">
+            <Pane layoutY="6.0" prefHeight="200.0" prefWidth="900.0">
                <children>
-                  <Label layoutX="70.0" layoutY="65.0" text="BodyOn" textFill="WHITE">
-                     <font>
-                        <Font size="48.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <TableView fx:id="clientTable" layoutX="8.0" layoutY="251.0" prefHeight="347.0" prefWidth="900.0">
+                  <Pane layoutX="-11.0" layoutY="-20.0" prefHeight="200.0" prefWidth="911.0" style="-fx-background-color: #263F73;">
+                     <children>
+                        <Label layoutX="36.0" layoutY="73.0" text="BodyOn" textFill="WHITE">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children></Pane>
+            <TableView layoutY="262.0" prefHeight="347.0" prefWidth="900.0">
               <columns>
-                <TableColumn fx:id="tableColumnClientAddressNome" prefWidth="75.0" text="Nome" />
-                  <TableColumn fx:id="tableColumnClientSeries" prefWidth="75.0" text="Serie" />
-                  <TableColumn fx:id="tableColumnClientRepetitions" prefWidth="75.0" text="Repeticao" />
+                <TableColumn prefWidth="75.0" text="Nome" />
+                <TableColumn prefWidth="75.0" text="Séries" />
+                  <TableColumn prefWidth="75.0" text="Repetições" />
               </columns>
             </TableView>
-            <Button layoutX="23.0" layoutY="207.0" mnemonicParsing="false" text="Home" />
-            <Button fx:id="registerClientButton" layoutX="787.0" layoutY="207.0" mnemonicParsing="false" onAction="#onRegisterClientButtonClick" text="Adicionar Exercicio" />
-         </children>
-      </AnchorPane>
-   </right>
+            <Button layoutX="755.0" layoutY="206.0" mnemonicParsing="false" text="Adicionar exercício" />
+            <ComboBox layoutX="525.0" layoutY="205.0" prefHeight="26.0" prefWidth="210.0" />
+            <Button layoutX="27.0" layoutY="206.0" mnemonicParsing="false" text="Home" />
+         </children></AnchorPane>
+   </top>
 </BorderPane>
