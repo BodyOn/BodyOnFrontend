@@ -33,6 +33,23 @@ public class Funcionario implements Serializable {
         this.horarioTrabalho = horarioTrabalho;
     }
 
+    public Funcionario(
+            String nome,
+            String cpf,
+            String email,
+            String telefone,
+            String endereco,
+            String cargo,
+            String horarioTrabalho) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.cargo = cargo;
+        this.horarioTrabalho = horarioTrabalho;
+    }
+
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }

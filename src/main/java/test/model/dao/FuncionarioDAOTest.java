@@ -65,23 +65,41 @@ public void testSetConnection() throws Exception {
 
 /** 
 * 
-* Method: insert(Funcionario funcionario) 
+* Method: insertById(Funcionario funcionario)
 * 
 */ 
 @Test
-public void testInsert() throws Exception {
+public void testInsertById() throws Exception {
     Database db = DatabaseFactory.getDatabase("postgresql");
     Connection conn = db.connect();
     FuncionarioDAO funcionario = new FuncionarioDAO();
     funcionario.setConnection(conn);
 
     Funcionario funcionarioTeste = new Funcionario(133, "Nome Teste", "Cpf Teste", "Email Teste", "Telefone Teste", "Endereco Teste", "Cargo Teste", "Horario Teste");
-    boolean resposta = funcionario.insert(funcionarioTeste);
+    boolean resposta = funcionario.insertById(funcionarioTeste);
 
     assertEquals(true, resposta);
-} 
+}
 
-/** 
+    /**
+     *
+     * Method: insert(Funcionario funcionario)
+     *
+     */
+    @Test
+    public void testInsert() throws Exception {
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        funcionario.setConnection(conn);
+
+        Funcionario funcionarioTeste = new Funcionario("Nome Teste", "Cpf Teste", "Email Teste", "Telefone Teste", "Endereco Teste", "Cargo Teste", "Horario Teste");
+        boolean resposta = funcionario.insert(funcionarioTeste);
+
+        assertEquals(true, resposta);
+    }
+
+    /**
 * 
 * Method: update(Funcionario funcionario) 
 * 

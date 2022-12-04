@@ -5,9 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import model.dao.FuncionarioDAO;
+import model.database.Database;
+import model.database.DatabaseFactory;
 import model.domain.Funcionario;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class EmployeeOperationsController implements Initializable {
@@ -31,6 +35,7 @@ public class EmployeeOperationsController implements Initializable {
     public TextField EmployeePosition;
     @FXML
     public Button deleteEmployee;
+    public int EmployeeId;
 
     String[] Schedule = new String[]{"8:00 - 12:00", "14:00 - 18:00", "18:00: 22:00"};
 
@@ -38,6 +43,7 @@ public class EmployeeOperationsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EmployeeSchedule.getItems().addAll(Schedule);
         deleteEmployee.setOnAction(this::deleteEmployee);
+
     }
 
     public void chooseOperation(Funcionario funcionario) {
@@ -48,9 +54,8 @@ public class EmployeeOperationsController implements Initializable {
             mainOperationButton.setOnAction(this::editEmployee);
             deleteEmployee.setVisible(true);
 
-            // pega cliente no bd
-
             // setando os dados
+            EmployeeId = funcionario.getId();
             EmployeeName.setText(funcionario.getNome());
             EmployeeAddress.setText(funcionario.getEndereco());
             EmployeeEmail.setText(funcionario.getEmail());
@@ -63,17 +68,72 @@ public class EmployeeOperationsController implements Initializable {
     @FXML
     protected void registerEmployee(ActionEvent event) {
         // TODO
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        funcionario.setConnection(conn);
+
+        Funcionario insertEmployee = new Funcionario(
+                EmployeeName.getText(),
+                EmployeeCpf.getText(),
+                EmployeeEmail.getText(),
+                EmployeeFone.getText(),
+                EmployeeAddress.getText(),
+                EmployeePosition.getText(),
+                EmployeeSchedule.getValue()
+        );
+        boolean resposta = funcionario.insert(insertEmployee);
+
+        if(resposta){
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
+
     }
 
     public void editEmployee(ActionEvent event) {
-        // TODO
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        funcionario.setConnection(conn);
+
+        Funcionario updateEmployee = new Funcionario(
+                EmployeeId,
+                EmployeeName.getText(),
+                EmployeeCpf.getText(),
+                EmployeeEmail.getText(),
+                EmployeeFone.getText(),
+                EmployeeAddress.getText(),
+                EmployeePosition.getText(),
+                EmployeeSchedule.getValue()
+        );
+        boolean resposta = funcionario.update(updateEmployee);
+
+        if(resposta){
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
     }
 
     public void deleteEmployee(ActionEvent event) {
-        // TODO
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        funcionario.setConnection(conn);
+
+        Funcionario deleteEmployee = new Funcionario(
+                EmployeeId,
+                EmployeeName.getText(),
+                EmployeeCpf.getText(),
+                EmployeeEmail.getText(),
+                EmployeeFone.getText(),
+                EmployeeAddress.getText(),
+                EmployeePosition.getText(),
+                EmployeeSchedule.getValue()
+        );
+        boolean resposta = funcionario.delete(deleteEmployee);
+
+        if(resposta){
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
     }
 
     public void onCancelButton(ActionEvent event) {

@@ -20,7 +20,7 @@ public class FuncionarioDAO {
         this.connection = connection;
     }
 
-    public boolean insert(Funcionario funcionario) {
+    public boolean insertById(Funcionario funcionario) {
         String sql = "INSERT INTO funcionarios(id_funcionario, nome, cpf, email, telefone, endereco, cargo, horario_trabalho) " +
                 "     VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -33,6 +33,28 @@ public class FuncionarioDAO {
             stmt.setString(6, funcionario.getEndereco());
             stmt.setString(7, funcionario.getCargo());
             stmt.setString(8, funcionario.getHorarioTrabalho());
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(
+                    FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex
+            );
+            return false;
+        }
+    }
+
+    public boolean insert(Funcionario funcionario) {
+        String sql = "INSERT INTO funcionarios(nome, cpf, email, telefone, endereco, cargo, horario_trabalho) " +
+                "     VALUES(?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getCpf());
+            stmt.setString(3, funcionario.getEmail());
+            stmt.setString(4, funcionario.getTelefone());
+            stmt.setString(5, funcionario.getEndereco());
+            stmt.setString(6, funcionario.getCargo());
+            stmt.setString(7, funcionario.getHorarioTrabalho());
             stmt.execute();
             return true;
         } catch (SQLException ex) {

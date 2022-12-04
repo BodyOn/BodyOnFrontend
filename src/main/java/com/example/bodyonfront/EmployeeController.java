@@ -14,14 +14,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.dao.FuncionarioDAO;
+import model.database.Database;
+import model.database.DatabaseFactory;
 import model.domain.Funcionario;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static junit.framework.TestCase.assertNotNull;
 
 public class EmployeeController implements Initializable {
     @FXML
@@ -48,7 +54,19 @@ public class EmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mockData();
+        //TODO
+        //REMOVER ISSO AQUI DEPOIS OU ORGANIZAR
+
+        tableColumnEmployeeId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableColumnEmployeeName.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnEmployeeCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        tableColumnEmployeeEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tableColumnEmployeeFone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+        tableColumnEmployeeAddress.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+        tableColumnEmployeePosition.setCellValueFactory(new PropertyValueFactory<>("cargo"));
+        tableColumnEmployeeSchedule.setCellValueFactory(new PropertyValueFactory<>("horarioTrabalho"));
+
+        loadEmployee();
 
         // table listener
         employeeTable.getSelectionModel().selectedItemProperty().addListener(
@@ -75,6 +93,22 @@ public class EmployeeController implements Initializable {
         employeeList.add(funcionario);
         employeeList.add(funcionario1);
         employeeList.add(funcionario2);
+
+        ObservableList<Funcionario> observableList = FXCollections.observableArrayList(employeeList);
+        employeeTable.setItems(observableList);
+    }
+
+    public void loadEmployee() {
+
+        Database db = DatabaseFactory.getDatabase("postgresql");
+        Connection conn = db.connect();
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        funcionario.setConnection(conn);
+        List<Funcionario> resposta = funcionario.list();
+
+        if(!resposta.isEmpty()){
+            employeeList.addAll(resposta);
+        }
 
         ObservableList<Funcionario> observableList = FXCollections.observableArrayList(employeeList);
         employeeTable.setItems(observableList);
