@@ -38,7 +38,7 @@
             <DatePicker fx:id="clientPayday" layoutX="15.0" layoutY="277.0" prefHeight="26.0" prefWidth="230.0" />
             <RadioButton fx:id="clientPendency" layoutX="257.0" layoutY="281.0" mnemonicParsing="false" text="Pendente" />
             <Button fx:id="deleteClient" layoutX="372.0" layoutY="360.0" mnemonicParsing="false" text="Excluir" />
-            <Button layoutX="293.0" layoutY="360.0" mnemonicParsing="false" text="Exercícios" />
+            <Button fx:id="exercises" layoutX="293.0" layoutY="360.0" mnemonicParsing="false" text="Exercícios" />
          </children>
       </AnchorPane>
    </center>

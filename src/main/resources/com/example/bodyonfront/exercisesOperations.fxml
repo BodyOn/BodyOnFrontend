@@ -24,8 +24,8 @@
             <Label layoutX="16.0" layoutY="136.0" text="Series" />
             <Button fx:id="deleteEmployee" layoutX="372.0" layoutY="360.0" mnemonicParsing="false" text="Excluir" />
             <Label layoutX="19.0" layoutY="200.0" text="Repetições" />
-            <TextField fx:id="EmployeeEmail1" layoutX="16.0" layoutY="218.0" prefHeight="26.0" prefWidth="230.0" />
-            <ChoiceBox layoutX="15.0" layoutY="281.0" prefHeight="26.0" prefWidth="231.0" />
+            <TextField fx:id="EmployeeRepetitions" layoutX="16.0" layoutY="218.0" prefHeight="26.0" prefWidth="230.0" />
+            <ChoiceBox fx:id="exercisesSchedule" layoutX="15.0" layoutY="281.0" prefHeight="26.0" prefWidth="231.0" />
             <Label layoutX="19.0" layoutY="263.0" text="Dia da semana" />
          </children>
       </AnchorPane>

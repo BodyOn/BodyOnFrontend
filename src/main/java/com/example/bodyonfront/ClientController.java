@@ -137,6 +137,21 @@ public class ClientController implements Initializable {
         stage.show();
     }
 
+    public void onExercisesClientButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("exercises.fxml"));
+        Parent root = fxmlLoader.load();
+
+        ExercisesOperationsController exercisesOperationsController = fxmlLoader.getController();
+        exercisesOperationsController.chooseOperation(null);
+
+        Stage stage = new Stage();
+        stage.setTitle("BodyOn");
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+
     public void onPendencyButtonClick() {
         if (pendencyButtonClicked) {
 
