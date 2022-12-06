@@ -5,11 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import model.dao.ClienteDAO;
 import model.dao.ExercicioDAO;
 import model.database.Database;
 import model.database.DatabaseFactory;
-import model.domain.Cliente;
 import model.domain.Exercicio;
 
 import java.net.URL;
@@ -43,15 +41,14 @@ public class ExercisesOperationsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         excercisesSchedule.getItems().addAll(Schedule);
-        deleteExercises.setOnAction(this::deleteClient);
+        deleteExercises.setOnAction(this::deleteExercises);
     }
 
     public void chooseOperation(Exercicio exercises) {
         if (exercises == null) {
-            mainOperationButton.setOnAction(this::registerClient);
-            deleteExercises.setVisible(false);
-        }else{
-            mainOperationButton.setOnAction(this::editClient);
+            mainOperationButton.setOnAction(this::registerExercises);
+            deleteExercises.setVisible(false);        }else{
+            mainOperationButton.setOnAction(this::editExcercoses);
             deleteExercises.setVisible(true);
 
             // pega cliente no db
@@ -68,57 +65,57 @@ public class ExercisesOperationsController implements Initializable {
     }
 
     @FXML
-    protected void registerClient(ActionEvent event) {
+    protected void registerExercises(ActionEvent event) {
         Database db = DatabaseFactory.getDatabase("postgresql");
         Connection conn = db.connect();
         ExercicioDAO exercicio = new ExercicioDAO();
 
         //TODO
         //REMOVER ISSO QUANDO TIVER TERMINADO
-        System.out.println("CLIENT ID " + exercisesId);
+        System.out.println("EXERCISES ID " + exercisesId);
 
-//        Cliente insertExercises = new Cliente(
-//                exercisesId,
-//                exercisesName.getText(),
-//                exercisesSeries.getText(),
-//                exercisesRepetitions.getText(),
-//                exercisesClientId
-//        );
-//
-//        exercicio.setConnection(conn);
-//           boolean resposta = exercicio.insertById(insertExercises);
-//
-//        if(resposta){
-//            ((Node)(event.getSource())).getScene().getWindow().hide();
-//        }
+        Exercicio insertExercises = new Exercicio(
+                exercisesId,
+                exercisesName.getText(),
+                Integer.parseInt(exercisesSeries.getText()),
+                Integer.parseInt(exercisesRepetitions.getText()),
+                exercisesClientId
+        );
+
+        exercicio.setConnection(conn);
+           boolean resposta = exercicio.insert(insertExercises);
+
+        if(resposta){
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+       }
     }
 
-    public void editClient(ActionEvent event) {
+    public void editExcercoses(ActionEvent event) {
         Database db = DatabaseFactory.getDatabase("postgresql");
         Connection conn = db.connect();
         ExercicioDAO exercicio = new ExercicioDAO();
 
         //TODO
         //REMOVER ISSO QUANDO TIVER TERMINADO
-        System.out.println("CLIENT ID " + exercisesId);
+        System.out.println("EXERCISES ID " + exercisesId);
 
-//        Cliente updateExcersises = new Cliente(
-//                exercisesId,
-//                exercisesName.getText(),
-//                exercisesSeries.getText(),
-//                exercisesRepetitions.getText(),
-//                exercisesClientId
-//        );
-//
-//        exercicio.setConnection(conn);
-//        boolean resposta = exercicio.update(updateExcersises);
-//
-//        if(resposta){
-//            ((Node)(event.getSource())).getScene().getWindow().hide();
-//        }
+        Exercicio updateExcersise = new Exercicio(
+                exercisesId,
+                exercisesName.getText(),
+                Integer.parseInt(exercisesSeries.getText()),
+                Integer.parseInt(exercisesRepetitions.getText()),
+                exercisesClientId
+        );
+
+        exercicio.setConnection(conn);
+        boolean resposta = exercicio.update(updateExcersise);
+
+        if(resposta){
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
     }
 
-    public void deleteClient(ActionEvent event) {
+    public void deleteExercises(ActionEvent event) {
         Database db = DatabaseFactory.getDatabase("postgresql");
         Connection conn = db.connect();
         ExercicioDAO exercicio = new ExercicioDAO();
@@ -126,22 +123,22 @@ public class ExercisesOperationsController implements Initializable {
 
         //TODO
         //REMOVER ISSO QUANDO TIVER TERMINADO
-        System.out.println("CLIENT ID " + exercisesId);
+        System.out.println("EXERCISES ID " + exercisesId);
 
-//        Cliente deleteExercises = new Cliente(
-//                exercisesId,
-//                exercisesName.getText(),
-//                exercisesSeries.getText(),
-//                exercisesRepetitions.getText(),
-//                exercisesClientId
-//        );
-//
-//        exercicio.setConnection(conn);
-//        boolean resposta = exercicio.delete(deleteExercises);
+        Exercicio deleteExercises = new Exercicio(
+                exercisesId,
+                exercisesName.getText(),
+                Integer.parseInt(exercisesSeries.getText()),
+                Integer.parseInt(exercisesRepetitions.getText()),
+                exercisesClientId
+        );
 
-//        if(resposta){
-//            ((Node)(event.getSource())).getScene().getWindow().hide();
-//        }
+        exercicio.setConnection(conn);
+        boolean resposta = exercicio.delete(deleteExercises);
+
+        if(resposta){
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
     }
 
     public void onCancelButton(ActionEvent event) {

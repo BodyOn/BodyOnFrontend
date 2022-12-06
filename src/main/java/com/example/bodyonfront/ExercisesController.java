@@ -15,11 +15,9 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.dao.ClienteDAO;
 import model.dao.ExercicioDAO;
 import model.database.Database;
 import model.database.DatabaseFactory;
-import model.domain.Cliente;
 import model.domain.Exercicio;
 
 import java.io.IOException;
@@ -65,17 +63,17 @@ public class ExercisesController implements Initializable {
         exerciseTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> onTableItemClick(newValue));
 
-//        exerciseTable.setRowFactory(tv -> new TableRow<Cliente>() {
-//            @Override
-//            protected void updateItem(Cliente item, boolean empty) {
-//                super.updateItem(item, empty);
-//                if (item != null) {
-//                    setStyle("-fx-background-color: #ffd7d1;");
-//                } else {
-//                    setStyle("");
-//                }
-//            }
-//        });
+            exerciseTable.setRowFactory(tv -> new TableRow<Exercicio>() {
+
+            protected void updateItem(Exercicio item, boolean empty) {
+               super.updateItem(item, empty);
+                if (item != null) {
+                    setStyle("-fx-background-color: #ffd7d1;");
+                } else {
+                    setStyle("");
+               }
+           }
+       });
     }
 
     public void mockData() {
