@@ -61,8 +61,8 @@ public class ExercisesOperationsController implements Initializable {
             // setando os dados
             exercisesId = exercises.getId();
             exercisesName.setText(exercises.getNome());
-            exercisesSeries.setText(exercises.getQtdSeries());
-            exercisesRepetitions.setText(exercises.getQtdRepeticoes());
+            exercisesSeries.setText(String.valueOf(exercises.getQtdSeries()));
+            exercisesRepetitions.setText(String.valueOf(exercises.getQtdRepeticoes()));
             exercisesClientId = exercises.getIdCliente();
         }
     }
@@ -77,21 +77,20 @@ public class ExercisesOperationsController implements Initializable {
         //REMOVER ISSO QUANDO TIVER TERMINADO
         System.out.println("CLIENT ID " + exercisesId);
 
-        Cliente insertExercises = new Cliente(
-                exercisesId,
-                exercisesName.getText(),
-                exercisesSeries.getText(),
-                exercisesRepetitions.getText(),
-                exercisesClientId
-        );
-
-        exercicio.setConnection(conn);
-           boolean resposta = exercicio.insertById(insertExercises);
-
-        if(resposta){
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-        }
-
+//        Cliente insertExercises = new Cliente(
+//                exercisesId,
+//                exercisesName.getText(),
+//                exercisesSeries.getText(),
+//                exercisesRepetitions.getText(),
+//                exercisesClientId
+//        );
+//
+//        exercicio.setConnection(conn);
+//           boolean resposta = exercicio.insertById(insertExercises);
+//
+//        if(resposta){
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
+//        }
     }
 
     public void editClient(ActionEvent event) {
@@ -103,20 +102,20 @@ public class ExercisesOperationsController implements Initializable {
         //REMOVER ISSO QUANDO TIVER TERMINADO
         System.out.println("CLIENT ID " + exercisesId);
 
-        Cliente updateExcersises = new Cliente(
-                exercisesId,
-                exercisesName.getText(),
-                exercisesSeries.getText(),
-                exercisesRepetitions.getText(),
-                exercisesClientId
-        );
-
-        exercicio.setConnection(conn);
-        boolean resposta = exercicio.update(updateExcersises);
-
-        if(resposta){
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-        }
+//        Cliente updateExcersises = new Cliente(
+//                exercisesId,
+//                exercisesName.getText(),
+//                exercisesSeries.getText(),
+//                exercisesRepetitions.getText(),
+//                exercisesClientId
+//        );
+//
+//        exercicio.setConnection(conn);
+//        boolean resposta = exercicio.update(updateExcersises);
+//
+//        if(resposta){
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
+//        }
     }
 
     public void deleteClient(ActionEvent event) {
@@ -129,20 +128,20 @@ public class ExercisesOperationsController implements Initializable {
         //REMOVER ISSO QUANDO TIVER TERMINADO
         System.out.println("CLIENT ID " + exercisesId);
 
-        Cliente deleteExercises = new Cliente(
-                exercisesId,
-                exercisesName.getText(),
-                exercisesSeries.getText(),
-                exercisesRepetitions.getText(),
-                exercisesClientId
-        );
+//        Cliente deleteExercises = new Cliente(
+//                exercisesId,
+//                exercisesName.getText(),
+//                exercisesSeries.getText(),
+//                exercisesRepetitions.getText(),
+//                exercisesClientId
+//        );
+//
+//        exercicio.setConnection(conn);
+//        boolean resposta = exercicio.delete(deleteExercises);
 
-        exercicio.setConnection(conn);
-        boolean resposta = exercicio.delete(deleteExercises);
-
-        if(resposta){
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-        }
+//        if(resposta){
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
+//        }
     }
 
     public void onCancelButton(ActionEvent event) {

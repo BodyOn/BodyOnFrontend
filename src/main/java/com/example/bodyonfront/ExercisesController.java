@@ -58,24 +58,24 @@ public class ExercisesController implements Initializable {
         tableColumnExercisesRepetitions.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
         loadClients();
 
-        ObservableList<Cliente> observableList = FXCollections.observableArrayList(exercisesList);
+        ObservableList<Exercicio> observableList = FXCollections.observableArrayList(exercisesList);
         exerciseTable.setItems(observableList);
 
         // table listener
         exerciseTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> onTableItemClick(newValue));
 
-        exerciseTable.setRowFactory(tv -> new TableRow<Cliente>() {
-            @Override
-            protected void updateItem(Cliente item, boolean empty) {
-                super.updateItem(item, empty);
-                if (item != null) {
-                    setStyle("-fx-background-color: #ffd7d1;");
-                } else {
-                    setStyle("");
-                }
-            }
-        });
+//        exerciseTable.setRowFactory(tv -> new TableRow<Cliente>() {
+//            @Override
+//            protected void updateItem(Cliente item, boolean empty) {
+//                super.updateItem(item, empty);
+//                if (item != null) {
+//                    setStyle("-fx-background-color: #ffd7d1;");
+//                } else {
+//                    setStyle("");
+//                }
+//            }
+//        });
     }
 
     public void mockData() {
@@ -88,7 +88,7 @@ public class ExercisesController implements Initializable {
         exercisesList.add(excercico3);
 
         ObservableList<Exercicio> observableList = FXCollections.observableArrayList(exercisesList);
-        exercisesList.setItems(observableList);
+        exerciseTable.setItems(observableList);
     }
 
     private void loadClients(){

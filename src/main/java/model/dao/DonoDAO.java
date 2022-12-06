@@ -13,12 +13,6 @@ import model.domain.Dono;
 
 public class DonoDAO {
     private Connection connection;
-    public Connection getConnection() {
-        return connection;
-    }
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
 
     public boolean insert(Dono dono) {
         String sql = "INSERT INTO dono(id_dono, nome, cpf, telefone, endereco, cargo, horario_trabalho, email, senha) " +
@@ -138,5 +132,13 @@ public class DonoDAO {
             );
         }
         return retorno;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
     }
 }
